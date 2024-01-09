@@ -35,12 +35,15 @@ def main():
   text_edit.grid(row=0, column=1)
 
   frame = tk.Frame(window, relief=tk.Raised, bd=2)
-  save_button = tk.Button(frame, text="Save", command=lambda: save_file(window, text_edit))
-  open_button = tk.Button(frame, text="Open", command=lambda: open_file(window, text_edit))
+  save_button = tk.Button(frame, text='Save', command=lambda: save_file(window, text_edit))
+  open_button = tk.Button(frame, text='Open', command=lambda: open_file(window, text_edit))
 
   save_button.grid(row=0, column=0, padx=5, pady=5, sticky='ew')
   open_button.grid(row=1, column=0, padx=5, sticky='ew')
-  frame.grid(row=0, column=0, sticky="ns")
+  frame.grid(row=0, column=0, sticky='ns')
+
+  window.bind('<Control -s>', lambda x: save_file(window, text_edit))
+  window.bind('<Control -o>', lambda x: open_file(window, text_edit))
 
   window.mainloop()
 
